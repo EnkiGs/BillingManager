@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingWeb", "BillingWeb\BillingWeb.csproj", "{C929C810-D3BD-45F2-90EC-8441887010AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillingWeb", "Web\BillingWeb\BillingWeb.csproj", "{C929C810-D3BD-45F2-90EC-8441887010AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{8EF62E15-1AAA-4157-8758-F68AE7382988}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2DBF447D-411B-4747-A0EC-A595C817F117}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{50B3BD42-74EA-4386-B18C-150EA26E40D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{87E83548-8DAC-4D59-9693-E093B2423555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityModels", "Common\EntityModels\EntityModels.csproj", "{0AC05981-A096-45E8-9C91-8933763172BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "Data\DataAccess\DataAccess.csproj", "{21190B15-C851-41EA-A662-5D12165E7C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +27,22 @@ Global
 		{C929C810-D3BD-45F2-90EC-8441887010AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C929C810-D3BD-45F2-90EC-8441887010AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C929C810-D3BD-45F2-90EC-8441887010AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC05981-A096-45E8-9C91-8933763172BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC05981-A096-45E8-9C91-8933763172BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC05981-A096-45E8-9C91-8933763172BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC05981-A096-45E8-9C91-8933763172BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21190B15-C851-41EA-A662-5D12165E7C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21190B15-C851-41EA-A662-5D12165E7C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21190B15-C851-41EA-A662-5D12165E7C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21190B15-C851-41EA-A662-5D12165E7C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C929C810-D3BD-45F2-90EC-8441887010AD} = {8EF62E15-1AAA-4157-8758-F68AE7382988}
+		{0AC05981-A096-45E8-9C91-8933763172BE} = {2DBF447D-411B-4747-A0EC-A595C817F117}
+		{21190B15-C851-41EA-A662-5D12165E7C48} = {50B3BD42-74EA-4386-B18C-150EA26E40D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68EFEBA8-773E-4518-A8FD-505B005A4996}
