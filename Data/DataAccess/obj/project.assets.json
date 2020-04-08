@@ -1281,6 +1281,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "DataAccessInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "EntityModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessInterfaces.dll": {}
+        }
+      },
       "EntityModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5001,6 +5014,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "DataAccessInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../DataAccessInterfaces/DataAccessInterfaces.csproj",
+      "msbuildProject": "../DataAccessInterfaces/DataAccessInterfaces.csproj"
+    },
     "EntityModels/1.0.0": {
       "type": "project",
       "path": "../../Common/EntityModels/EntityModels.csproj",
@@ -5009,6 +5027,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DataAccessInterfaces >= 1.0.0",
       "EntityModels >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.3",
@@ -5043,6 +5062,9 @@
           "projectReferences": {
             "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
               "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
+            },
+            "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
+              "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj"
             }
           }
         }

@@ -1,0 +1,15 @@
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.csprojAssemblyReference.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.AssemblyInfoInputs.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.AssemblyInfo.cs
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\StartUpConfiguration.deps.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\StartUpConfiguration.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\StartUpConfiguration.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\EntityModels.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\EntityModels.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.csproj.CopyComplete
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfiguration.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\DataAccessInterfaces.pdb

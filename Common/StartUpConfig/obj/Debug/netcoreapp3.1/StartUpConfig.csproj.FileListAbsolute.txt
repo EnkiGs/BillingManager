@@ -1,0 +1,5 @@
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\StartUpConfig.deps.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\bin\Debug\netcoreapp3.1\StartUpConfig.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfig.csprojAssemblyReference.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfig.AssemblyInfoInputs.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Common\StartUpConfig\obj\Debug\netcoreapp3.1\StartUpConfig.AssemblyInfo.cs

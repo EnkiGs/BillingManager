@@ -3,3 +3,13 @@ C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\EntityModels.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\EntityModels.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CopyComplete
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccess\bin\Debug\netcoreapp3.1\DataAccessInterfaces.pdb

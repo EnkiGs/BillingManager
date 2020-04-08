@@ -1,0 +1,80 @@
+﻿@model Common.EntityModels.Bill
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Bill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ref" class="control-label"></label>
+                <input asp-for="Ref" class="form-control" />
+                <span asp-validation-for="Ref" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefDeb" class="control-label"></label>
+                <input asp-for="RefDeb" class="form-control" />
+                <span asp-validation-for="RefDeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Objet" class="control-label"></label>
+                <input asp-for="Objet" class="form-control" />
+                <span asp-validation-for="Objet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModeR" class="control-label"></label>
+                <select asp-for="ModeR" class="form-control"></select>
+                <span asp-validation-for="ModeR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mDate" class="control-label"></label>
+                <input asp-for="mDate" class="form-control" />
+                <span asp-validation-for="mDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateP" class="control-label"></label>
+                <input asp-for="DateP" class="form-control" />
+                <span asp-validation-for="DateP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientId" class="control-label"></label>
+                <input asp-for="ClientId" class="form-control" />
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

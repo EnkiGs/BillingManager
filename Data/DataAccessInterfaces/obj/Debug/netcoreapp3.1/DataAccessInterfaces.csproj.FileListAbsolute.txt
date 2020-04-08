@@ -1,0 +1,11 @@
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.deps.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csprojAssemblyReference.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.AssemblyInfoInputs.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.AssemblyInfo.cs
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csproj.CopyComplete
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.pdb

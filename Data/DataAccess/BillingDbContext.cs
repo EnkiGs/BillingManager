@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace DataAccess
+namespace Data.DataAccess
 {
     public class BillingDbContext : DbContext
     {
@@ -16,8 +16,8 @@ namespace DataAccess
         }
 
         public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<Facture> Factures { get; set; }
-        public virtual DbSet<Devis> Devis { get; set; }
+        public virtual DbSet<Bill> Bills { get; set; }
+        public virtual DbSet<Estimate> Estimates { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
