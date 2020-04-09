@@ -1,40 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Common.EntityModels;
-using Data.DataAccess;
+using Professional.BusinessInterfaces.Services.Interfaces;
+using System;
 
 namespace Web.BillingWeb.Controllers
 {
     public class BillsController : Controller
     {
-        private readonly BillingDbContext _context;
+        private readonly IBillService billService;
 
-        public BillsController(BillingDbContext context)
+        public BillsController(IBillService billService)
         {
-            _context = context;
+            this.billService = billService;
         }
 
         // GET: Bills
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bills.ToListAsync());
+            var bills = await billService.GetBills();
+            return View(bills);
         }
 
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bill = await _context.Bills
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bill = await billService.GetBill(id);
             if (bill == null)
             {
                 return NotFound();
@@ -44,9 +36,13 @@ namespace Web.BillingWeb.Controllers
         }
 
         // GET: Bills/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var bill = new Bill();
+            var currentYear = DateTime.Now.Year;
+            bill.Year = currentYear;
+            bill.Num = await billService.CountBillsForYear(currentYear);
+            return View(bill);
         }
 
         // POST: Bills/Create
@@ -54,12 +50,11 @@ namespace Web.BillingWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Ref,RefDeb,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
+        public IActionResult Create([Bind("Ref,RefDeb,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bill);
-                await _context.SaveChangesAsync();
+                billService.AddBill(bill);
                 return RedirectToAction(nameof(Index));
             }
             return View(bill);
@@ -68,12 +63,7 @@ namespace Web.BillingWeb.Controllers
         // GET: Bills/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bill = await _context.Bills.FindAsync(id);
+            var bill = await billService.GetBill(id);
             if (bill == null)
             {
                 return NotFound();
@@ -86,7 +76,7 @@ namespace Web.BillingWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Ref,RefDeb,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
+        public IActionResult Edit(long id, [Bind("Num,Year,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
         {
             if (id != bill.Id)
             {
@@ -97,19 +87,11 @@ namespace Web.BillingWeb.Controllers
             {
                 try
                 {
-                    _context.Update(bill);
-                    await _context.SaveChangesAsync();
+                    billService.UpdateBill(bill);
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateConcurrencyException) when (billService.GetBill(bill.Id) == null)
                 {
-                    if (!BillExists(bill.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -119,13 +101,7 @@ namespace Web.BillingWeb.Controllers
         // GET: Bills/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bill = await _context.Bills
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bill = await billService.GetBill(id);
             if (bill == null)
             {
                 return NotFound();
@@ -137,17 +113,10 @@ namespace Web.BillingWeb.Controllers
         // POST: Bills/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public IActionResult DeleteConfirmed(long id)
         {
-            var bill = await _context.Bills.FindAsync(id);
-            _context.Bills.Remove(bill);
-            await _context.SaveChangesAsync();
+            billService.DeleteBill(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool BillExists(long id)
-        {
-            return _context.Bills.Any(e => e.Id == id);
         }
     }
 }

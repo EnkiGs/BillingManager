@@ -8,8 +8,8 @@ namespace Common.EntityModels
 {
     public abstract class Document : BaseEntity
     {
-        public string Ref { get; set; }
-        public int RefDeb { get; set; }
+        public int Year { get; set; }
+        public int Num { get; set; }
         public string Objet { get; set; }
         public double Total { get; set; }
         public PayementWay ModeR { get; set; }

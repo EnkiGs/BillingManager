@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.DataAccess.Migrations
 {
     [DbContext(typeof(BillingDbContext))]
-    [Migration("20200408104219_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200409095730_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,9 +23,10 @@ namespace Data.DataAccess.Migrations
 
             modelBuilder.Entity("Common.EntityModels.Bill", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -56,14 +57,15 @@ namespace Data.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Factures");
+                    b.ToTable("Bills");
                 });
 
             modelBuilder.Entity("Common.EntityModels.Client", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adresse")
                         .HasColumnType("nvarchar(max)");
@@ -105,9 +107,10 @@ namespace Data.DataAccess.Migrations
 
             modelBuilder.Entity("Common.EntityModels.Estimate", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -138,7 +141,7 @@ namespace Data.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Devis");
+                    b.ToTable("Estimates");
                 });
 #pragma warning restore 612, 618
         }

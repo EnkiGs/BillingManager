@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Professional.Business.Services
 {
-    class EstimateService : IEstimateService
+    public class EstimateService : IEstimateService
     {
     }
 }

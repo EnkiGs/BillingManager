@@ -21,9 +21,10 @@ namespace Data.DataAccess.Migrations
 
             modelBuilder.Entity("Common.EntityModels.Bill", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -37,31 +38,32 @@ namespace Data.DataAccess.Migrations
                     b.Property<int>("ModeR")
                         .HasColumnType("int");
 
+                    b.Property<int>("Num")
+                        .HasColumnType("int");
+
                     b.Property<string>("Objet")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Ref")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RefDeb")
-                        .HasColumnType("int");
-
                     b.Property<double>("Total")
                         .HasColumnType("float");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("mDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Factures");
+                    b.ToTable("Bills");
                 });
 
             modelBuilder.Entity("Common.EntityModels.Client", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adresse")
                         .HasColumnType("nvarchar(max)");
@@ -103,9 +105,10 @@ namespace Data.DataAccess.Migrations
 
             modelBuilder.Entity("Common.EntityModels.Estimate", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -119,24 +122,24 @@ namespace Data.DataAccess.Migrations
                     b.Property<int>("ModeR")
                         .HasColumnType("int");
 
+                    b.Property<int>("Num")
+                        .HasColumnType("int");
+
                     b.Property<string>("Objet")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Ref")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RefDeb")
-                        .HasColumnType("int");
-
                     b.Property<double>("Total")
                         .HasColumnType("float");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("mDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Devis");
+                    b.ToTable("Estimates");
                 });
 #pragma warning restore 612, 618
         }

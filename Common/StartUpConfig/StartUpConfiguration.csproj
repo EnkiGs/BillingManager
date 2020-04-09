@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\..\Professional\BusinessInterfaces\BusinessInterfaces.csproj" />
+    <ProjectReference Include="..\..\Professional\Business\Business.csproj" />
   </ItemGroup>
 
 </Project>

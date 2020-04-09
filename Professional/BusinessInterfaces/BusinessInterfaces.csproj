@@ -5,4 +5,8 @@
     <RootNamespace>Professional.BusinessInterfaces</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\EntityModels\EntityModels.csproj" />
+  </ItemGroup>
+
 </Project>

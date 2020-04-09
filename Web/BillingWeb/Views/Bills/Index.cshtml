@@ -1,17 +1,8 @@
 ﻿@model IEnumerable<Common.EntityModels.Bill>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Bills List";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -19,10 +10,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ref)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RefDeb)
+                Référence
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Objet)
@@ -52,10 +40,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Ref)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RefDeb)
+                @item.Num-@item.Year
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Objet)
@@ -87,5 +72,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

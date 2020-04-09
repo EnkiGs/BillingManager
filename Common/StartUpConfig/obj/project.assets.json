@@ -1279,6 +1279,34 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BusinessInterfaces": "1.0.0",
+          "DataAccessInterfaces": "1.0.0",
+          "EntityModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.dll": {}
+        }
+      },
+      "BusinessInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "EntityModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessInterfaces.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5017,6 +5045,16 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Business/1.0.0": {
+      "type": "project",
+      "path": "../../Professional/Business/Business.csproj",
+      "msbuildProject": "../../Professional/Business/Business.csproj"
+    },
+    "BusinessInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../../Professional/BusinessInterfaces/BusinessInterfaces.csproj",
+      "msbuildProject": "../../Professional/BusinessInterfaces/BusinessInterfaces.csproj"
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../../Data/DataAccess/DataAccess.csproj",
@@ -5036,6 +5074,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
+      "Business >= 1.0.0",
+      "BusinessInterfaces >= 1.0.0",
       "DataAccess >= 1.0.0",
       "Microsoft.Extensions.Configuration >= 3.1.3"
     ]
@@ -5068,6 +5108,12 @@
           "projectReferences": {
             "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
+              "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
+            },
+            "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj"
             }
           }
         }

@@ -3,15 +3,37 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.DataAccess.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Bills",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Ref = table.Column<string>(nullable: true),
+                    RefDeb = table.Column<int>(nullable: false),
+                    Objet = table.Column<string>(nullable: true),
+                    Total = table.Column<double>(nullable: false),
+                    ModeR = table.Column<int>(nullable: false),
+                    Date = table.Column<string>(nullable: true),
+                    mDate = table.Column<DateTime>(nullable: false),
+                    DateP = table.Column<string>(nullable: true),
+                    ClientId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bills", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Clients",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Statut = table.Column<int>(nullable: false),
                     Societe = table.Column<string>(nullable: true),
                     Civil = table.Column<int>(nullable: false),
@@ -30,10 +52,11 @@ namespace Data.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Devis",
+                name: "Estimates",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Ref = table.Column<string>(nullable: true),
                     RefDeb = table.Column<int>(nullable: false),
                     Objet = table.Column<string>(nullable: true),
@@ -46,40 +69,20 @@ namespace Data.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Devis", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Factures",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Ref = table.Column<string>(nullable: true),
-                    RefDeb = table.Column<int>(nullable: false),
-                    Objet = table.Column<string>(nullable: true),
-                    Total = table.Column<double>(nullable: false),
-                    ModeR = table.Column<int>(nullable: false),
-                    Date = table.Column<string>(nullable: true),
-                    mDate = table.Column<DateTime>(nullable: false),
-                    DateP = table.Column<string>(nullable: true),
-                    ClientId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Factures", x => x.Id);
+                    table.PrimaryKey("PK_Estimates", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Bills");
+
+            migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
-                name: "Devis");
-
-            migrationBuilder.DropTable(
-                name: "Factures");
+                name: "Estimates");
         }
     }
 }

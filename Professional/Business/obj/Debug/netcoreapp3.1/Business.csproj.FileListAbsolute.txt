@@ -1,0 +1,15 @@
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\Business.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\Business.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\BusinessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\EntityModels.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\EntityModels.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\DataAccessInterfaces.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\bin\Debug\netcoreapp3.1\BusinessInterfaces.pdb
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.csprojAssemblyReference.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.dll
+C:\Users\frus76270\Documents\Personnel\BillingManager\Professional\Business\obj\Debug\netcoreapp3.1\Business.pdb

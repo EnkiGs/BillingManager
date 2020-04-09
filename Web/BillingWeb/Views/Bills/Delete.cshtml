@@ -1,17 +1,10 @@
 ﻿@model Common.EntityModels.Bill
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Bill Deletion";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -19,16 +12,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ref)
+            Référence
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ref)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RefDeb)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RefDeb)
+            @Model.Num-@Model.Year
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Objet)
@@ -80,5 +67,3 @@
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
-</body>
-</html>
