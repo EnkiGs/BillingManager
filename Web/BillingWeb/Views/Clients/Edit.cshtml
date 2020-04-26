@@ -1,9 +1,7 @@
-﻿@model Common.EntityModels.Client
-
+﻿@model ClientEditionViewModel
 @{
     ViewData["Title"] = "Client Edition";
 }
-
 
 <h4>Client</h4>
 <hr />
@@ -12,61 +10,60 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Statut" class="control-label"></label>
-                <select asp-for="Statut" class="form-control"></select>
-                <span asp-validation-for="Statut" class="text-danger"></span>
+                <label asp-for="client.Statut" class="control-label"></label>
+                <select asp-for="client.Statut" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.Statute>()"></select>
+                <span asp-validation-for="client.Statut" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Societe" class="control-label"></label>
-                <input asp-for="Societe" class="form-control" />
-                <span asp-validation-for="Societe" class="text-danger"></span>
+                <label asp-for="client.Societe" class="control-label"></label>
+                <input asp-for="client.Societe" class="form-control" />
+                <span asp-validation-for="client.Societe" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Civil" class="control-label"></label>
-                <select asp-for="Civil" class="form-control"></select>
-                <span asp-validation-for="Civil" class="text-danger"></span>
+                <label asp-for="client.Civil" class="control-label"></label>
+                <select asp-for="client.Civil" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.Title>()"></select>
+                <span asp-validation-for="client.Civil" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nom" class="control-label"></label>
-                <input asp-for="Nom" class="form-control" />
-                <span asp-validation-for="Nom" class="text-danger"></span>
+                <label asp-for="client.Nom" class="control-label"></label>
+                <input asp-for="client.Nom" class="form-control" />
+                <span asp-validation-for="client.Nom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Prenom" class="control-label"></label>
-                <input asp-for="Prenom" class="form-control" />
-                <span asp-validation-for="Prenom" class="text-danger"></span>
+                <label asp-for="client.Prenom" class="control-label"></label>
+                <input asp-for="client.Prenom" class="form-control" />
+                <span asp-validation-for="client.Prenom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Adresse" class="control-label"></label>
-                <input asp-for="Adresse" class="form-control" />
-                <span asp-validation-for="Adresse" class="text-danger"></span>
+                <label asp-for="client.Adresse" class="control-label"></label>
+                <input asp-for="client.Adresse" class="form-control" />
+                <span asp-validation-for="client.Adresse" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Pays" class="control-label"></label>
-                <input asp-for="Pays" class="form-control" />
-                <span asp-validation-for="Pays" class="text-danger"></span>
+                <label asp-for="client.CP" class="control-label"></label>
+                <input asp-for="client.CP" class="form-control" />
+                <span asp-validation-for="client.CP" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CP" class="control-label"></label>
-                <input asp-for="CP" class="form-control" />
-                <span asp-validation-for="CP" class="text-danger"></span>
+                <label asp-for="client.Ville" class="control-label"></label>
+                <input asp-for="client.Ville" class="form-control" />
+                <span asp-validation-for="client.Ville" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ville" class="control-label"></label>
-                <input asp-for="Ville" class="form-control" />
-                <span asp-validation-for="Ville" class="text-danger"></span>
+                <label asp-for="client.Pays" class="control-label"></label>
+                <select asp-for="client.Pays" class="form-control" asp-items="@Model.countries"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="client.Email" class="control-label"></label>
+                <input asp-for="client.Email" class="form-control" />
+                <span asp-validation-for="client.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tel" class="control-label"></label>
-                <input asp-for="Tel" class="form-control" />
-                <span asp-validation-for="Tel" class="text-danger"></span>
+                <label asp-for="client.Tel" class="control-label"></label>
+                <input asp-for="client.Tel" class="form-control" />
+                <span asp-validation-for="client.Tel" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="client.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -1,4 +1,4 @@
-﻿@model Common.EntityModels.Bill
+﻿@model BillEditionViewModel
 
 @{
     ViewData["Title"] = "Bill Edition";
@@ -13,44 +13,42 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-label">Référence</label>
-                <input class="form-control" value="@Model.Num-@Model.Year" readonly />
+                <input class="form-control" value="@Model.Bill.Num-@Model.Bill.Year" readonly />
+                <input hidden asp-for="Bill.Num" />
+                <input hidden asp-for="Bill.Year" />
             </div>
             <div class="form-group">
-                <label asp-for="Objet" class="control-label"></label>
-                <input asp-for="Objet" class="form-control" />
-                <span asp-validation-for="Objet" class="text-danger"></span>
+                <label asp-for="Bill.Objet" class="control-label"></label>
+                <input asp-for="Bill.Objet" class="form-control" />
+                <span asp-validation-for="Bill.Objet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
+                <label asp-for="Bill.ClientId" class="control-label">Client</label>
+                <select name="clientSelect" asp-for="Bill.ClientId" class="form-control" asp-items="@Model.Clients"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ModeR" class="control-label"></label>
-                <select asp-for="ModeR" class="form-control"></select>
-                <span asp-validation-for="ModeR" class="text-danger"></span>
+                <label asp-for="Bill.Date" class="control-label"></label>
+                <input asp-for="Bill.Date" class="form-control" />
+                <span asp-validation-for="Bill.Date" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Bill.Total" class="control-label"></label>
+                <input asp-for="Bill.Total" class="form-control" readonly />
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
+                <label asp-for="Bill.ModeR" class="control-label"></label>
+                <select asp-for="Bill.ModeR" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.PayementWay>()"></select>
+                <span asp-validation-for="Bill.ModeR" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="mDate" class="control-label"></label>
-                <input asp-for="mDate" class="form-control" />
-                <span asp-validation-for="mDate" class="text-danger"></span>
+                <label asp-for="Bill.DateP" class="control-label"></label>
+                <input asp-for="Bill.DateP" class="form-control" />
+                <span asp-validation-for="Bill.DateP" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DateP" class="control-label"></label>
-                <input asp-for="DateP" class="form-control" />
-                <span asp-validation-for="DateP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <input asp-for="ClientId" class="form-control" />
-                <span asp-validation-for="ClientId" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Bill.Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

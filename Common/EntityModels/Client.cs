@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Common.EntityModels
@@ -8,14 +9,20 @@ namespace Common.EntityModels
     {
         public Statute Statut { get; set; }
         public string Societe { get; set; }
+
+        [DisplayName("Civilité")]
         public Title Civil { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse { get; set; }
         public string Pays { get; set; }
+
+        [DisplayName("Code postal")]
         public string CP { get; set; }
         public string Ville { get; set; }
         public string Email { get; set; }
+
+        [DisplayName("Téléphone")]
         public string Tel { get; set; }
 
         public Client() { }

@@ -12,10 +12,14 @@ namespace Professional.BusinessInterfaces.Services.Interfaces
 
         Task<Client> GetClient(long? id);
 
-        void AddClient(Client client);
+        Task AddClient(Client client);
 
-        void UpdateClient(Client client);
+        Task UpdateClient(Client client);
 
-        void DeleteClient(long id);
+        Task DeleteClient(long id);
+
+        Task<string> GetClientName(long Id);
+
+        string GetClientName(Client client);
     }
 }

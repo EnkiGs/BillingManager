@@ -4,45 +4,70 @@ using Microsoft.EntityFrameworkCore;
 using Common.EntityModels;
 using Professional.BusinessInterfaces.Services.Interfaces;
 using System;
+using Web.BillingWeb.Models;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Web.BillingWeb.Controllers
 {
     public class BillsController : Controller
     {
         private readonly IBillService billService;
+        private readonly IClientService clientService;
 
-        public BillsController(IBillService billService)
+        public BillsController(IBillService billService, IClientService clientService)
         {
             this.billService = billService;
+            this.clientService = clientService;
         }
 
         // GET: Bills
         public async Task<IActionResult> Index()
         {
+            var model = new List<BillDisplayViewModel>();
             var bills = await billService.GetBills();
-            return View(bills);
+            foreach (var bill in bills)
+            {
+                string clientName = await clientService.GetClientName(bill.ClientId);
+                model.Add(new BillDisplayViewModel()
+                {
+                    bill = bill,
+                    clientName = clientName
+                });
+            }
+            return View(model);
         }
 
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(long? id)
         {
-            var bill = await billService.GetBill(id);
-            if (bill == null)
+            var model = new BillDisplayViewModel();
+            model.bill = await billService.GetBill(id);
+            if (model.bill == null)
             {
                 return NotFound();
             }
+            model.clientName = await clientService.GetClientName(model.bill.ClientId);
 
-            return View(bill);
+            return View(model);
         }
 
         // GET: Bills/Create
         public async Task<IActionResult> Create()
         {
-            var bill = new Bill();
+            var model = new BillEditionViewModel();
+            model.Bill = new Bill();
             var currentYear = DateTime.Now.Year;
-            bill.Year = currentYear;
-            bill.Num = await billService.CountBillsForYear(currentYear);
-            return View(bill);
+            model.Bill.Year = currentYear;
+            model.Bill.Num = await billService.CountBillsForYear(currentYear) + 1;
+            var liste = new List<SelectListItem>();
+            var clients = await clientService.GetClients();
+            foreach (var client in clients)
+            {
+                liste.Add(new SelectListItem(clientService.GetClientName(client), client.Id.ToString()));
+            }
+            model.Clients = liste;
+            return View(model);
         }
 
         // POST: Bills/Create
@@ -50,25 +75,49 @@ namespace Web.BillingWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Ref,RefDeb,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
+        public async Task<IActionResult> Create([Bind("Objet,Total,ModeR,Date,DateP,Id,Num,Year")] Bill bill, string clientSelect)
         {
+            bill.ClientId = long.Parse(clientSelect);
             if (ModelState.IsValid)
             {
-                billService.AddBill(bill);
+                await billService.AddBill(bill);
                 return RedirectToAction(nameof(Index));
             }
-            return View(bill);
+            var model = new BillEditionViewModel();
+            model.Bill = bill;
+            var liste = new List<SelectListItem>();
+            var clients = await clientService.GetClients();
+            foreach (var client in clients)
+            {
+                liste.Add(new SelectListItem(clientService.GetClientName(client), client.Id.ToString()));
+            }
+            model.Clients = liste;
+            return View(model);
         }
 
         // GET: Bills/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
-            var bill = await billService.GetBill(id);
-            if (bill == null)
+            var model = new BillEditionViewModel();
+            model.Bill = await billService.GetBill(id);
+            if (model.Bill == null)
             {
                 return NotFound();
             }
-            return View(bill);
+            var liste = new List<SelectListItem>();
+            var clients = await clientService.GetClients();
+            var selected = false;
+            foreach (var client in clients)
+            {
+                if(client.Id == model.Bill.ClientId)
+                {
+                    selected = true;
+                }
+                liste.Add(new SelectListItem(clientService.GetClientName(client), client.Id.ToString(), selected));
+                selected = false;
+            }
+            model.Clients = liste;
+            return View(model);
         }
 
         // POST: Bills/Edit/5
@@ -76,18 +125,18 @@ namespace Web.BillingWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(long id, [Bind("Num,Year,Objet,Total,ModeR,Date,mDate,DateP,ClientId,Id")] Bill bill)
+        public async Task<IActionResult> Edit(long id, [Bind("Num,Year,Objet,Total,ModeR,Date,DateP,Id")] Bill bill, string clientSelect)
         {
             if (id != bill.Id)
             {
                 return NotFound();
             }
-
+            bill.ClientId = long.Parse(clientSelect);
             if (ModelState.IsValid)
             {
                 try
                 {
-                    billService.UpdateBill(bill);
+                    await billService.UpdateBill(bill);
                 }
                 catch (DbUpdateConcurrencyException) when (billService.GetBill(bill.Id) == null)
                 {
@@ -101,22 +150,39 @@ namespace Web.BillingWeb.Controllers
         // GET: Bills/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
-            var bill = await billService.GetBill(id);
-            if (bill == null)
+            var model = new BillDisplayViewModel();
+            model.bill = await billService.GetBill(id);
+            if (model.bill == null)
             {
                 return NotFound();
             }
+            model.clientName = await clientService.GetClientName(model.bill.ClientId);
 
-            return View(bill);
+            return View(model);
         }
 
         // POST: Bills/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(long id)
+        public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            billService.DeleteBill(id);
+            await billService.DeleteBill(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        // POST: Bills/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddLibelle(BillEditionViewModel model)
+        {
+            if(model.Bill.LibelleList == null)
+            {
+                model.Bill.LibelleList = new List<Wording>();
+            }
+            model.Bill.LibelleList.Add(new Wording());
+            return View("Create", model);
         }
     }
 }

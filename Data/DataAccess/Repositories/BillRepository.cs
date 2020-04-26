@@ -28,18 +28,18 @@ namespace Data.DataAccess.Repositories
             return await context.Bills.ToListAsync();
         }
 
-        public async void AddBill(Bill bill)
+        public async Task AddBill(Bill bill)
         {
             context.Add(bill);
             await context.SaveChangesAsync();
         }
 
-        public async void UpdateBill(Bill bill)
+        public async Task UpdateBill(Bill bill)
         {
             context.Update(bill);
             await context.SaveChangesAsync();
         }
-        public async void DeleteBill(long id)
+        public async Task DeleteBill(long id)
         {
             var bill = await context.Bills.FindAsync(id);
             context.Bills.Remove(bill);

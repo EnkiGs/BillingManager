@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Common.EntityModels
@@ -7,9 +8,12 @@ namespace Common.EntityModels
     public class Wording : BaseEntity
     {
         public float Quantite { get; set; }
+
+        [DisplayName("Prix unitaire")]
         public float PrixU { get; set; }
 
-        public string Content;
+        [DisplayName("Description")]
+        public string Content { get; set; }
 
         public Wording() { }
 

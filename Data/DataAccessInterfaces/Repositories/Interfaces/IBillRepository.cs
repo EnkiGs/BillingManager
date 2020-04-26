@@ -12,10 +12,10 @@ namespace DataAccessInterfaces.Repositories.Interfaces
 
         Task<Bill> GetBill(long id);
 
-        void AddBill(Bill bill);
+        Task AddBill(Bill bill);
 
-        void UpdateBill(Bill bill);
+        Task UpdateBill(Bill bill);
 
-        void DeleteBill(long id);
+        Task DeleteBill(long id);
     }
 }

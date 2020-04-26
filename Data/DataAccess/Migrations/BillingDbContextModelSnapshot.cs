@@ -26,14 +26,14 @@ namespace Data.DataAccess.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long>("ClientId")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DateP")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateP")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ModeR")
                         .HasColumnType("int");
@@ -49,9 +49,6 @@ namespace Data.DataAccess.Migrations
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("mDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -110,14 +107,14 @@ namespace Data.DataAccess.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<long>("ClientId")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DateP")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateP")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ModeR")
                         .HasColumnType("int");
@@ -133,9 +130,6 @@ namespace Data.DataAccess.Migrations
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("mDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

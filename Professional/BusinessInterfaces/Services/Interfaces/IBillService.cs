@@ -12,11 +12,11 @@ namespace Professional.BusinessInterfaces.Services.Interfaces
 
         Task<Bill> GetBill(long? id);
 
-        void AddBill(Bill bill);
+        Task AddBill(Bill bill);
 
-        void UpdateBill(Bill bill);
+        Task UpdateBill(Bill bill);
 
-        void DeleteBill(long id);
+        Task DeleteBill(long id);
 
         Task<int> CountBillsForYear(int year);
     }

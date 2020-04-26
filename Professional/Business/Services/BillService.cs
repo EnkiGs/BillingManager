@@ -28,19 +28,19 @@ namespace Professional.Business.Services
             return id == null ? null : await repo.GetBill(id.Value);
         }
 
-        public void AddBill(Bill bill)
+        public async Task AddBill(Bill bill)
         {
-            repo.AddBill(bill);
+            await repo.AddBill(bill);
         }
 
-        public void UpdateBill(Bill bill)
+        public async Task UpdateBill(Bill bill)
         {
-            repo.UpdateBill(bill);
+            await repo.UpdateBill(bill);
         }
 
-        public void DeleteBill(long id)
+        public async Task DeleteBill(long id)
         {
-            repo.DeleteBill(id);
+            await repo.DeleteBill(id);
         }
 
         public async Task<int> CountBillsForYear(int year)

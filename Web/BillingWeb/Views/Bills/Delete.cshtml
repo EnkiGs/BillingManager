@@ -1,4 +1,4 @@
-﻿@model Common.EntityModels.Bill
+﻿@model BillDisplayViewModel
 
 @{
     ViewData["Title"] = "Bill Deletion";
@@ -15,54 +15,48 @@
             Référence
         </dt>
         <dd class = "col-sm-10">
-            @Model.Num-@Model.Year
+            @Model.bill.Num-@Model.bill.Year
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Objet)
+            @Html.DisplayNameFor(model => model.bill.Objet)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Objet)
+            @Html.DisplayFor(model => model.bill.Objet)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Total)
+            @Html.DisplayNameFor(model => model.bill.Total)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Total)
+            @Html.DisplayFor(model => model.bill.Total)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModeR)
+            @Html.DisplayNameFor(model => model.bill.ModeR)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModeR)
+            @Html.DisplayFor(model => model.bill.ModeR)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model.bill.Date)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
+            @Html.DisplayFor(model => model.bill.Date)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.mDate)
+            @Html.DisplayNameFor(model => model.bill.DateP)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.mDate)
+            @Html.DisplayFor(model => model.bill.DateP)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateP)
+            Client
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateP)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClientId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClientId)
+            @Html.DisplayFor(model => model.clientName)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="bill.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

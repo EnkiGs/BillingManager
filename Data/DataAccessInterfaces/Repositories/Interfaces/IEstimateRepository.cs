@@ -12,10 +12,10 @@ namespace DataAccessInterfaces.Repositories.Interfaces
 
         Task<Estimate> GetEstimate(long id);
 
-        void AddEstimate(Estimate estimate);
+        Task AddEstimate(Estimate estimate);
 
-        void UpdateEstimate(Estimate estimate);
+        Task UpdateEstimate(Estimate estimate);
 
-        void DeleteEstimate(long id);
+        Task DeleteEstimate(long id);
     }
 }

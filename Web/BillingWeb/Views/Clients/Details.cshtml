@@ -1,4 +1,4 @@
-﻿@model Common.EntityModels.Client
+﻿@model ClientDisplayViewModel
 
 @{
     ViewData["Title"] = "Client Details";
@@ -10,40 +10,52 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Statut)
+            @Html.DisplayNameFor(model => model.client.Statut)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Statut)
+            @Html.DisplayFor(model => model.client.Statut)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Societe)
+            @Html.DisplayNameFor(model => model.client.Societe)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Societe)
+            @Html.DisplayFor(model => model.client.Societe)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Civil)
+            @Html.DisplayNameFor(model => model.client.Civil)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Civil)
+            @Html.DisplayFor(model => model.client.Civil)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nom)
+            @Html.DisplayNameFor(model => model.client.Nom)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nom)
+            @Html.DisplayFor(model => model.client.Nom)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prenom)
+            @Html.DisplayNameFor(model => model.client.Prenom)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prenom)
+            @Html.DisplayFor(model => model.client.Prenom)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Adresse)
+            @Html.DisplayNameFor(model => model.client.Adresse)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Adresse)
+            @Html.DisplayFor(model => model.client.Adresse)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.client.CP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.client.CP)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.client.Ville)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.client.Ville)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Pays)
@@ -52,32 +64,20 @@
             @Html.DisplayFor(model => model.Pays)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CP)
+            @Html.DisplayNameFor(model => model.client.Email)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CP)
+            @Html.DisplayFor(model => model.client.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ville)
+            @Html.DisplayNameFor(model => model.client.Tel)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ville)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tel)
+            @Html.DisplayFor(model => model.client.Tel)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.client.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

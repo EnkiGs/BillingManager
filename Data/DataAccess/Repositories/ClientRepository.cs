@@ -27,13 +27,13 @@ namespace Data.DataAccess.Repositories
             return await context.Clients.ToListAsync();
         }
 
-        public async void AddClient(Client client)
+        public async Task AddClient(Client client)
         {
             context.Add(client);
             await context.SaveChangesAsync();
         }
 
-        public async void UpdateClient(Client client)
+        public async Task UpdateClient(Client client)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Data.DataAccess.Repositories
             }
         }
 
-        public async void DeleteClient(long id)
+        public async Task DeleteClient(long id)
         {
             var client = await context.Clients.FindAsync(id);
             context.Clients.Remove(client);

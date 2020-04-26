@@ -28,13 +28,13 @@ namespace Data.DataAccess.Repositories
             return await context.Estimates.ToListAsync();
         }
 
-        public async void AddEstimate(Estimate estimate)
+        public async Task AddEstimate(Estimate estimate)
         {
             context.Add(estimate);
             await context.SaveChangesAsync();
         }
 
-        public async void UpdateEstimate(Estimate estimate)
+        public async Task UpdateEstimate(Estimate estimate)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Data.DataAccess.Repositories
             }
         }
 
-        public async void DeleteEstimate(long id)
+        public async Task DeleteEstimate(long id)
         {
             var estimate = await context.Estimates.FindAsync(id);
             context.Estimates.Remove(estimate);

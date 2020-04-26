@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Common.EntityModels
 {
     public enum PayementWay
     {
-        Non_payé,
+        [Display(Name = "Non payé")]
+        Non_payé ,
         Carte,
         Virement,
         Chèque,

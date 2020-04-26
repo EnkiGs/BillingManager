@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Common.EntityModels.Bill>
+﻿@model IEnumerable<BillDisplayViewModel>
 
 @{
     ViewData["Title"] = "Bills List";
@@ -13,25 +13,22 @@
                 Référence
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Objet)
+                @Html.DisplayNameFor(model => model.bill.Objet)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Total)
+                @Html.DisplayNameFor(model => model.bill.Total)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModeR)
+                @Html.DisplayNameFor(model => model.bill.ModeR)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                @Html.DisplayNameFor(model => model.bill.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mDate)
+                @Html.DisplayNameFor(model => model.bill.DateP)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientId)
+                Client
             </th>
             <th></th>
         </tr>
@@ -40,33 +37,30 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @item.Num-@item.Year
+                @item.bill.Num-@item.bill.Year
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Objet)
+                @Html.DisplayFor(modelItem => item.bill.Objet)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Total)
+                @Html.DisplayFor(modelItem => item.bill.Total)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ModeR)
+                @Html.DisplayFor(modelItem => item.bill.ModeR)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.bill.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.mDate)
+                @Html.DisplayFor(modelItem => item.bill.DateP)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateP)
+                @Html.DisplayFor(modelItem => item.clientName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClientId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.bill.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.bill.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.bill.Id">Delete</a>
             </td>
         </tr>
 }

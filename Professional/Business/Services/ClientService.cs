@@ -27,19 +27,30 @@ namespace Professional.Business.Services
             return id == null ? null : await repo.GetClient(id.Value);
         }
 
-        public void AddClient(Client client)
+        public async Task AddClient(Client client)
         {
-            repo.AddClient(client);
+            await repo.AddClient(client);
         }
 
-        public void UpdateClient(Client client)
+        public async Task UpdateClient(Client client)
         {
-            repo.UpdateClient(client);
+            await repo.UpdateClient(client);
         }
 
-        public void DeleteClient(long id)
+        public async Task DeleteClient(long id)
         {
-            repo.DeleteClient(id);
+            await repo.DeleteClient(id);
+        }
+
+        public async Task<string> GetClientName(long Id)
+        {
+            var client = await GetClient(Id);
+            return GetClientName(client);
+        }
+
+        public string GetClientName(Client client)
+        {
+            return client.Civil == Title.Société ? client.Societe : client.Prenom + client.Nom;
         }
     }
 }

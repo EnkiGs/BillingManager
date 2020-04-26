@@ -12,10 +12,10 @@ namespace DataAccessInterfaces.Repositories.Interfaces
 
         Task<Client> GetClient(long id);
 
-        void AddClient(Client client);
+        Task AddClient(Client client);
 
-        void UpdateClient(Client client);
+        Task UpdateClient(Client client);
 
-        void DeleteClient(long id);
+        Task DeleteClient(long id);
     }
 }

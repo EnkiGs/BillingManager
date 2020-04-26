@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -12,9 +13,11 @@ namespace Common.EntityModels
         public int Num { get; set; }
         public string Objet { get; set; }
         public double Total { get; set; }
+
+        [DisplayName("Mode de paiement")]
         public PayementWay ModeR { get; set; }
 
-        public virtual string Date
+        /*public virtual string Date
         {
             get
             {
@@ -24,29 +27,35 @@ namespace Common.EntityModels
             {
                 mDate = DateTime.Parse(value);
             }
-        }
-        public DateTime mDate { get; set; }
+        }*/
 
-        public virtual string DateP
-        {
-            get
-            {
-                return mDateP.ToString("dd/MM/yy");
-            }
-            private set
-            {
-                if (value == null)
-                    value = "01/01/0001";
-                mDateP = DateTime.Parse(value);
-            }
-        }
-        private DateTime mDateP;
+        [DataType(DataType.Date)]
+        [DisplayName("Date de création")]
+        public DateTime Date { get; set; }
+        /*
+                public virtual string DateP
+                {
+                    get
+                    {
+                        return mDateP.ToString("dd/MM/yy");
+                    }
+                    private set
+                    {
+                        if (value == null)
+                            value = "01/01/0001";
+                        mDateP = DateTime.Parse(value);
+                    }
+                }*/
+
+        [DataType(DataType.Date)]
+        [DisplayName("Date de paiement")]
+        public DateTime DateP { get; set; }
 
         public ICollection<Wording> LibelleList;
 
         [ForeignKey("Client")]
-        public Guid ClientId { get; set; }
-
+        [DisplayName("Client")]
+        public long ClientId { get; set; }
 
         public virtual Client Client { get; }
 
