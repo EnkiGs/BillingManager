@@ -17,5 +17,9 @@ namespace DataAccessInterfaces.Repositories.Interfaces
         Task UpdateBill(Bill bill);
 
         Task DeleteBill(long id);
+
+        Task<IEnumerable<string>> GetRegularObjects();
+
+        Task<IEnumerable<string>> GetRegularDescriptions();
     }
 }

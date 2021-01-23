@@ -1,59 +1,151 @@
-﻿@model BillDisplayViewModel
+﻿@model BillViewModel
 
 @{
-    ViewData["Title"] = "Bill Details";
+    ViewData["Title"] = "Bill " + Model.Bill.Num + "-" + Model.Bill.Year;
 }
 
 
-<div>
-    <h4>Bill</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Référence
-        </dt>
-        <dd class = "col-sm-10">
-            @Model.bill.Num-@Model.bill.Year
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bill.Objet)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bill.Objet)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bill.Total)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bill.Total)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bill.ModeR)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bill.ModeR)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bill.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bill.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.bill.DateP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.bill.DateP)
-        </dd>
-        <dt class = "col-sm-2">
-            Client
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.clientName)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <form asp-action="PostBill">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Référence</label>
+                <input class="form-control" value="@Model.Bill.Num-@Model.Bill.Year" readonly />
+                <input hidden asp-for="Bill.Num" />
+                <input hidden asp-for="Bill.Year" />
+                <input hidden asp-for="Bill.Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Bill.Objet" class="control-label"></label>
+                <div class="autocomplete">
+                    <input asp-for="Bill.Objet" class="form-control"/>
+                </div>
+                <span asp-validation-for="Bill.Objet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bill.ClientId" class="control-label">Client</label>
+                <select name="clientSelect" asp-for="Bill.ClientId" class="form-control" asp-items="@Model.Clients"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bill.Date" class="control-label"></label>
+                <input asp-for="Bill.Date" class="form-control" />
+                <span asp-validation-for="Bill.Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <fieldset class="form-add-wording">
+                    <label for="wordings" class="control-label" style="font-size: large;"><strong>Libelles</strong></label>
+                    <div>
+                        <div class="add-wordings">
+                            @for (int i = 0; i < Model.Bill.LibelleList.Count; i++)
+                            {
+                                <div class="add-wording listenedGroup p-3 border border-dark rounded-lg my-2">
+                                    <div class="form-group">
+                                        <input hidden name="Bill.LibelleList[@i].Id" class="form-control idWording" type="number" id="Id" value="@Model.Bill.LibelleList.ElementAt(i).Id"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Bill.LibelleList.ElementAt(i).Content" class="control-label"></label>
+                                        <div class="autocomplete">
+                                            <textarea rows="2" asp-for="Bill.LibelleList.ElementAt(i).Content" name="Bill.LibelleList[@i].Content" placeholder="Description" class="form-control content"></textarea>
+                                        </div>
+                                        <span asp-validation-for="Bill.LibelleList.ElementAt(i).Content" class="text-danger" />
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label asp-for="Bill.LibelleList.ElementAt(i).Quantite" class="control-label w-25 d-inline-block"></label>
+                                        <input asp-for="Bill.LibelleList.ElementAt(i).Quantite" name="Bill.LibelleList[@i].Quantite" placeholder="Quantite" class="form-control listened quantity" />
+                                        <span asp-validation-for="Bill.LibelleList.ElementAt(i).Quantite" class="text-danger" />
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label asp-for="Bill.LibelleList.ElementAt(i).PrixU" class="control-label w-25 d-inline-block"></label>
+                                        <input asp-for="Bill.LibelleList.ElementAt(i).PrixU" name="Bill.LibelleList[@i].PrixU" class="form-control listened price" />
+                                        <span asp-validation-for="Bill.LibelleList.ElementAt(i).PrixU" class="text-danger" />
+                                    </div>
+                                    <div class="form-group">
+                                        <a class="btn btn-remove-wording btn-danger" title="Remove wording"><span class="fas fa-minus"></span></a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <button class="btn btn-add-wording btn-info"><i class="fas fa-plus"></i></button>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Bill.Total" class="control-label"></label>
+                <input asp-for="Bill.Total" id="TotalInput" class="form-control" readonly />
+            </div>
+            <div class="form-group" id="payement">
+                <label asp-for="Bill.ModeR" class="control-label"></label>
+                <select id="PayementWaySelect" asp-for="Bill.ModeR" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.PayementWay>()"></select>
+                <span asp-validation-for="Bill.ModeR" class="text-danger"></span>
+            </div>
+            <div id="DatePDiv" class="form-group">
+                <label asp-for="Bill.DateP" class="control-label"></label>
+                <input asp-for="Bill.DateP" class="form-control" />
+                <span asp-validation-for="Bill.DateP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (Model.Bill.Id == 0)
+                {
+                        <input type="submit" value="Créer" class="btn btn-success" />
+                }
+                else
+                {
+                        <input type="submit" value="Enregistrer" class="btn btn-success" />
+                }
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" asp-action="Index">Annuler</a>
+            </div>
+        </form>
+        @if (Model.Bill.Id != 0)
+        {
+            <form id="DeleteForm" class="d-inline-block" action="/Bills/Delete/@Model.Bill.Id" method="post">
+                <input type="hidden" asp-for="@Model.Bill.Id" />
+                <button type="button" class="btn btn-danger btnDelete" onclick="ConfirmDelete()">Supprimer</button>
+            </form>
+        }
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.bill.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Supprimer facture</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <h4>Etes-vous sûr(e) de vouloir supprimer cette facture ?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Annuler</a>
+                <a href="#" class="btn btn-success" onclick="DeleteBill()">Confirmer</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/documentJS.js" asp-append-version="true"></script>    
+    <script src="~/js/Bills/BillDetail.js" asp-append-version="true"></script>    
+    <script>
+
+        var ConfirmDelete = function () {
+            $("#myModal").modal('show');
+        }
+
+        var DeleteBill = function () {
+            $('#DeleteForm').submit();
+        }
+
+        $(document).ready(function () {
+            documentJS.Init();
+            billDetail.Init();
+            var documentDetail = billDetail;
+        });
+
+    </script>
+}

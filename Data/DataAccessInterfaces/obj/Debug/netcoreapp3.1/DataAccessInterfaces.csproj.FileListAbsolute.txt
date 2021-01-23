@@ -9,3 +9,15 @@ C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csproj.CopyComplete
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.dll
 C:\Users\frus76270\Documents\Personnel\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.deps.json
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\DataAccessInterfaces.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csprojAssemblyReference.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csproj.CoreCompileInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.AssemblyInfoInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.AssemblyInfo.cs
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.csproj.CopyComplete
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager\Data\DataAccessInterfaces\obj\Debug\netcoreapp3.1\DataAccessInterfaces.pdb

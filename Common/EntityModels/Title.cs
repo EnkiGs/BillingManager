@@ -7,12 +7,15 @@ namespace Common.EntityModels
 {
     public enum Title
     {
+        [Display(Name = "Société")]
         Société,
+        [Display(Name = "Mme")]
         Madame,
+        [Display(Name = "M.")]
         Monsieur,
-        [Display(Name = "Monsieur et Madame")]
+        [Display(Name = "M. et Mme")]
         Monsieur_et_Madame,
-        [Display(Name = "Monsieur ou Madame")]
+        [Display(Name = "M. ou Mme")]
         Monsieur_ou_Madame
     }
 }

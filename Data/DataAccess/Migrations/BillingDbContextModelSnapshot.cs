@@ -19,42 +19,6 @@ namespace Data.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Common.EntityModels.Bill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("ClientId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateP")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ModeR")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Num")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Objet")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Bills");
-                });
-
             modelBuilder.Entity("Common.EntityModels.Client", b =>
                 {
                     b.Property<long>("Id")
@@ -100,7 +64,7 @@ namespace Data.DataAccess.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("Common.EntityModels.Estimate", b =>
+            modelBuilder.Entity("Common.EntityModels.Document", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,6 +79,10 @@ namespace Data.DataAccess.Migrations
 
                     b.Property<DateTime>("DateP")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ModeR")
                         .HasColumnType("int");
@@ -133,7 +101,69 @@ namespace Data.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Estimates");
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Document");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Document");
+                });
+
+            modelBuilder.Entity("Common.EntityModels.Wording", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("DocId")
+                        .HasColumnType("bigint");
+
+                    b.Property<float>("PrixU")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Quantite")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocId");
+
+                    b.ToTable("Wordings");
+                });
+
+            modelBuilder.Entity("Common.EntityModels.Bill", b =>
+                {
+                    b.HasBaseType("Common.EntityModels.Document");
+
+                    b.HasDiscriminator().HasValue("Bill");
+                });
+
+            modelBuilder.Entity("Common.EntityModels.Estimate", b =>
+                {
+                    b.HasBaseType("Common.EntityModels.Document");
+
+                    b.HasDiscriminator().HasValue("Estimate");
+                });
+
+            modelBuilder.Entity("Common.EntityModels.Document", b =>
+                {
+                    b.HasOne("Common.EntityModels.Client", null)
+                        .WithMany("Documents")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Common.EntityModels.Wording", b =>
+                {
+                    b.HasOne("Common.EntityModels.Document", "Doc")
+                        .WithMany("LibelleList")
+                        .HasForeignKey("DocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

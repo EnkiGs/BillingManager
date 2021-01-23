@@ -1,0 +1,149 @@
+﻿@model EstimateViewModel
+
+@{
+    ViewData["Title"] = "Estimate " + Model.Estimate.Num + "-" + Model.Estimate.Year;
+}
+
+
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <form asp-action="PostEstimate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Référence</label>
+                <input class="form-control" value="@Model.Estimate.Num-@Model.Estimate.Year" readonly />
+                <input hidden asp-for="Estimate.Num" />
+                <input hidden asp-for="Estimate.Year" />
+                <input hidden asp-for="Estimate.Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Estimate.Objet" class="control-label"></label>
+                <div class="autocomplete">
+                    <input asp-for="Estimate.Objet" class="form-control" />
+                </div>
+                <span asp-validation-for="Estimate.Objet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estimate.ClientId" class="control-label">Client</label>
+                <select name="clientSelect" asp-for="Estimate.ClientId" class="form-control" asp-items="@Model.Clients"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estimate.Date" class="control-label"></label>
+                <input asp-for="Estimate.Date" class="form-control" />
+                <span asp-validation-for="Estimate.Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <fieldset class="form-add-wording">
+                    <label for="wordings" class="control-label" style="font-size: large;"><strong>Libelles</strong></label>
+                    <div>
+                        <div class="add-wordings">
+                            @for (int i = 0; i < Model.Estimate.LibelleList.Count; i++)
+                            {
+                                <div class="add-wording listenedGroup p-3 border border-dark rounded-lg my-2">
+                                    <div class="form-group">
+                                        <input hidden name="Estimate.LibelleList[@i].Id" class="form-control idWording" type="number" id="Id" value="@Model.Estimate.LibelleList.ElementAt(i).Id" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Estimate.LibelleList.ElementAt(i).Content" class="control-label"></label>
+                                        <div class="autocomplete">
+                                            <textarea rows="2" asp-for="Estimate.LibelleList.ElementAt(i).Content" name="Estimate.LibelleList[@i].Content" placeholder="Description" class="form-control content"></textarea>
+                                        </div>
+                                        <span asp-validation-for="Estimate.LibelleList.ElementAt(i).Content" class="text-danger" />
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label asp-for="Estimate.LibelleList.ElementAt(i).Quantite" class="control-label w-25 d-inline-block"></label>
+                                        <input asp-for="Estimate.LibelleList.ElementAt(i).Quantite" name="Estimate.LibelleList[@i].Quantite" placeholder="Quantite" class="form-control listened quantity" />
+                                        <span asp-validation-for="Estimate.LibelleList.ElementAt(i).Quantite" class="text-danger" />
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label asp-for="Estimate.LibelleList.ElementAt(i).PrixU" class="control-label w-25 d-inline-block"></label>
+                                        <input asp-for="Estimate.LibelleList.ElementAt(i).PrixU" name="Estimate.LibelleList[@i].PrixU" class="form-control listened price" />
+                                        <span asp-validation-for="Estimate.LibelleList.ElementAt(i).PrixU" class="text-danger" />
+                                    </div>
+                                    <div class="form-group">
+                                        <a class="btn btn-remove-wording btn-danger" title="Remove wording"><span class="fas fa-minus"></span></a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <button class="btn btn-add-wording btn-info"><i class="fas fa-plus"></i></button>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Estimate.Total" class="control-label"></label>
+                <input asp-for="Estimate.Total" id="TotalInput" class="form-control" readonly />
+            </div>
+            <div class="form-group" id="payement">
+                <label asp-for="Estimate.ModeR" class="control-label"></label>
+                <select id="PayementWaySelect" asp-for="Estimate.ModeR" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.PayementWay>()"></select>
+                <span asp-validation-for="Estimate.ModeR" class="text-danger"></span>
+            </div>
+            <div id="DatePDiv" class="form-group">
+                <label asp-for="Estimate.DateP" class="control-label"></label>
+                <input asp-for="Estimate.DateP" class="form-control" />
+                <span asp-validation-for="Estimate.DateP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (Model.Estimate.Id == 0)
+                {
+                    <input type="submit" value="Créer" class="btn btn-success" />
+                }
+                else
+                {
+                    <input type="submit" value="Enregistrer" class="btn btn-success" />
+                }
+                <a class="btn btn-primary" asp-action="Index">Annuler</a>
+            </div>
+        </form>
+        @if (Model.Estimate.Id != 0)
+        {
+            <form id="DeleteForm" class="d-inline-block" action="/Estimates/Delete/@Model.Estimate.Id" method="post">
+                <input type="hidden" asp-for="@Model.Estimate.Id" />
+                <button type="button" class="btn btn-danger btnDelete" onclick="ConfirmDelete()">Supprimer</button>
+            </form>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Supprimer devis</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <h4>Etes-vous sûr(e) de vouloir supprimer ce devis ?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Annuler</a>
+                <a href="#" class="btn btn-success" onclick="DeleteEstimate()">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/documentJS.js" asp-append-version="true"></script>
+    <script src="~/js/Estimates/EstimateDetail.js" asp-append-version="true"></script>
+    <script>
+
+        var ConfirmDelete = function () {
+            $("#myModal").modal('show');
+        }
+
+        var DeleteEstimate = function () {
+            $('#DeleteForm').submit();
+        }
+
+        $(document).ready(function () {
+            documentJS.Init();
+            estimateDetail.Init();
+            var documentDetail = estimateDetail;
+        });
+
+    </script>
+}

@@ -18,6 +18,8 @@ namespace Data.DataAccess
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<Estimate> Estimates { get; set; }
+        public virtual DbSet<Wording> Wordings { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

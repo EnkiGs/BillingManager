@@ -15,125 +15,85 @@ namespace Web.BillingWeb.Controllers
 {
     public class ClientsController : Controller
     {
-        private readonly IClientService clientService;
+        private readonly IClientService _clientService;
 
         public ClientsController(IClientService clientService)
         {
-            this.clientService = clientService;
+            this._clientService = clientService;
         }
 
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            var clients = await clientService.GetClients();
+            var clients = await _clientService.GetClients();
             return View(clients);
         }
 
         // GET: Clients/Details/5
         public async Task<IActionResult> Details(long? id)
         {
-            var model = new ClientDisplayViewModel();
-            model.client = await clientService.GetClient(id);
+            var model = new ClientViewModel();
+            model.client = await _clientService.GetClient(id);
             if (model.client == null)
             {
                 return NotFound();
             }
-            model.Pays = GetCountryName(model.client.Pays);
+            model.countries = GetAllCountries();
+            model.countries.First(c => c.Value == model.client.Pays).Selected = true;
             return View(model);
         }
 
         // GET: Clients/Create
         public IActionResult Create()
         {
-            var model = new ClientEditionViewModel();
-            model.countries = GetAllCountries();
-            model.client = new Client()
+            var model = new ClientViewModel
             {
-                Pays = CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                countries = GetAllCountries(),
+                client = new Client()
             };
-            return View(model);
+            return View("Details", model);
         }
 
-        // POST: Clients/Create
+        // POST: Clients/PostClient
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Statut,Societe,Civil,Nom,Prenom,Adresse,Pays,CP,Ville,Email,Tel,Id")] Client client)
+        public async Task<IActionResult> PostClient(ClientViewModel model)
         {
             if (ModelState.IsValid)
             {
-                await clientService.AddClient(client);
-                return RedirectToAction(nameof(Index));
-            }
-            var model = new ClientEditionViewModel();
-            model.countries = GetAllCountries();
-            model.client = client;
-            return View(model);
-        }
-
-        // GET: Clients/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            var model = new ClientEditionViewModel();
-            model.client = await clientService.GetClient(id);
-            if (model.client == null)
-            {
-                return NotFound();
-            }
-            model.countries = GetAllCountries();
-            return View(model);
-        }
-
-        // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Statut,Societe,Civil,Nom,Prenom,Adresse,Pays,CP,Ville,Email,Tel,Id")] Client client)
-        {
-            if (id != client.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (model.client.Id == 0)
                 {
-                    await clientService.UpdateClient(client);
+                    await _clientService.AddClient(model.client);
                 }
-                catch (DbUpdateConcurrencyException) when (clientService.GetClient(client.Id) == null)
+                else
                 {
-                    return NotFound();
+                    try
+                    {
+                        await _clientService.UpdateClient(model.client);
+                    }
+                    catch (DbUpdateConcurrencyException) when (_clientService.GetClient(model.client.Id) == null)
+                    {
+                        return NotFound();
+                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
-            var model = new ClientEditionViewModel();
-            model.countries = GetAllCountries();
-            model.client = client;
-            return View(model);
-        }
-
-        // GET: Clients/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            var model = new ClientDisplayViewModel();
-            model.client = await clientService.GetClient(id);
-            if (model.client == null)
-            {
-                return NotFound();
-            }
-            model.Pays = GetCountryName(model.client.Pays);
-            return View(model);
+            
+            return View("Details", model);
         }
 
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            await clientService.DeleteClient(id);
+            if (await _clientService.GetClient(id) == null)
+            {
+                return NotFound();
+            }
+            await _clientService.DeleteClient(id);
             return RedirectToAction(nameof(Index));
         }
 

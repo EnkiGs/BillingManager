@@ -1,0 +1,89 @@
+﻿
+html{
+    height: 90%;
+    letter-spacing : 1px;
+}
+body {
+    position: relative;
+    margin : 30px 30px;
+    height: 100%;
+}
+
+#profilCadre {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    width: 300px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.xlarge{
+    font-size: x-large;
+}
+
+.large {
+    font-size: large;
+}
+
+.text-right{
+    text-align: right;
+}
+
+#wordingsTable {
+    width: 100%;
+    margin: 15px 0px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+.headerLine {
+    background-color: #5f5f5f;
+}
+
+#designationCell {
+    width: 55%;
+    text-align: left;
+}
+
+#wordingsTable .headerLine .headerCellOthers{
+    width: 15%;
+    text-align: right;
+}
+
+.headerCell {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: white;
+}
+
+#wordingsTable tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+.line {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+#TotalTable {
+    position: absolute;
+    width: 200px;
+    right: 0;
+    margin: 15px 0px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+.spaced{
+    line-height: 1.5;
+}
+
+#Credit {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    letter-spacing: 0px;
+}

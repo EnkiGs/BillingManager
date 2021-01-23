@@ -1,16 +1,22 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Text;
 
 namespace Common.EntityModels
 {
     public class Client : BaseEntity, IComparable
     {
+        [Required(ErrorMessage = "Le statut est obligatoire")]
         public Statute Statut { get; set; }
         public string Societe { get; set; }
 
         [DisplayName("Civilité")]
+        [Required(ErrorMessage = "La civilité est obligatoire")]
         public Title Civil { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
@@ -20,35 +26,37 @@ namespace Common.EntityModels
         [DisplayName("Code postal")]
         public string CP { get; set; }
         public string Ville { get; set; }
+        [Required(ErrorMessage = "L'email est obligatoire")]
+        [RegularExpression(@"^[a-zA-Z0-9_.-]+@{1}[a-zA-Z0-9_.-]{2,}\.[a-zA-Z0-9_.-]{2,4}$", ErrorMessage = "Le format de l'email n'est pas valide.")]
         public string Email { get; set; }
 
         [DisplayName("Téléphone")]
+        [RegularExpression(@"^(?:(?:\+|00)33|0|\(\d{3}\))\s*[1-9]?((?:[\s.-]*\d{2}){4}|(?:[\s.-]*\d{3}){3})$", ErrorMessage = "Le numéro de téléphone n'est pas valide.")]
         public string Tel { get; set; }
 
-        public Client() { }
+        public ICollection<Document> Documents { get; set; }
 
-        /*public Client(Statute Statut, String Societe, Title Civil, String Nom, String Prenom, String Adresse, String CP, String Ville, String Email, String Tel)
-        {
-            Pays = "France";
-            this.Statut = Statut;
-            this.Societe = Societe;
-            this.Civil = Civil;
-            this.Nom = Nom;
-            this.Prenom = Prenom;
-            this.Adresse = Adresse;
-            this.CP = CP;
-            this.Ville = Ville;
-            this.Email = Email;
-            this.Tel = Tel;
-        }*/
+        public Client() {
+            Statut = Statute.Particulier;
+            Societe = string.Empty;
+            Civil = Title.Société;
+            Nom = string.Empty;
+            Prenom = string.Empty;
+            Adresse = string.Empty;
+            Pays = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+            CP = string.Empty;
+            Ville = string.Empty;
+            Email = string.Empty;
+            Tel = string.Empty;
+            Documents = new Collection<Document>();
+        }
 
         public override string ToString()
         {
             if (Societe != null && Societe != "")
                 return Societe;
-            return Nom;
+            return Nom + Prenom;
         }
-
 
         public int CompareTo(object obj)
         {

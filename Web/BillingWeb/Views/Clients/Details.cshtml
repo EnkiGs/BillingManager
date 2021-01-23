@@ -1,83 +1,135 @@
-﻿@model ClientDisplayViewModel
+﻿@model ClientViewModel
 
 @{
-    ViewData["Title"] = "Client Details";
+    ViewData["Title"] = "Client " + Model.client.ToString();
 }
 
 
-<div>
-    <h4>Client</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Statut)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Statut)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Societe)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Societe)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Civil)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Civil)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Nom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Nom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Prenom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Prenom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Adresse)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Adresse)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.CP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.CP)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Ville)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Ville)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pays)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pays)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.client.Tel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.client.Tel)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <form id="SubmitClient" asp-action="PostClient">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="client.Statut" class="control-label"></label>
+                <select asp-for="client.Statut" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.Statute>()"></select>
+                <span asp-validation-for="client.Statut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Societe" class="control-label"></label>
+                <input asp-for="client.Societe" class="form-control" />
+                <span class="text-danger notValidClient d-none">Veuillez renseigner une société ou un nom.</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Civil" class="control-label"></label>
+                <select asp-for="client.Civil" class="form-control" asp-items="Html.GetEnumSelectList<Common.EntityModels.Title>()"></select>
+                <span asp-validation-for="client.Civil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Nom" class="control-label"></label>
+                <input asp-for="client.Nom" class="form-control" />
+                <span class="text-danger notValidClient d-none">Veuillez renseigner une société ou un nom.</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Prenom" class="control-label"></label>
+                <input asp-for="client.Prenom" class="form-control" />
+                <span asp-validation-for="client.Prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Adresse" class="control-label"></label>
+                <input asp-for="client.Adresse" class="form-control" />
+                <span asp-validation-for="client.Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.CP" class="control-label"></label>
+                <input asp-for="client.CP" class="form-control" />
+                <span asp-validation-for="client.CP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Ville" class="control-label"></label>
+                <input asp-for="client.Ville" class="form-control" />
+                <span asp-validation-for="client.Ville" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Pays" class="control-label"></label>
+                <select asp-for="client.Pays" class="form-control" asp-items="@Model.countries"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Email" class="control-label"></label>
+                <input asp-for="client.Email" class="form-control" />
+                <span asp-validation-for="client.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="client.Tel" class="control-label"></label>
+                <input asp-for="client.Tel" class="form-control" />
+                <span asp-validation-for="client.Tel" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="client.Id" />
+            <div class="form-group">
+                @if (Model.client.Id == 0)
+                {
+                    <button type="button" onclick="CheckValidClient()" class="btn btn-success">Créer</button>
+                }
+                else
+                {
+                    <button type="button" onclick="CheckValidClient()" class="btn btn-success">Enregistrer</button>
+                }
+                <a class="btn btn-primary" asp-action="Index">Annuler</a>
+            </div>
+        </form>
+        @if (Model.client.Id != 0)
+        {
+            <form id="DeleteForm" class="d-inline-block" action="/Clients/Delete/@Model.client.Id" method="post">
+                <input type="hidden" asp-for="@Model.client.Id" />
+                <button type="button" class="btn btn-danger btnDelete" onclick="ConfirmDelete()">Supprimer</button>
+            </form>
+        }
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.client.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Supprimer client</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <h4>Etes-vous sûr(e) de vouloir supprimer ce client ?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Annuler</a>
+                <a href="#" class="btn btn-success" onclick="DeleteClient()">Confirmer</a>
+            </div>
+        </div>
+    </div>
 </div>
+@section Scripts {
+    <script>
+
+        var ConfirmDelete = function () {
+            $("#myModal").modal('show');
+        }
+
+        var DeleteClient = function () {
+            $('#DeleteForm').submit();
+        }
+
+        var CheckValidClient = function () {
+            var societe = $('#client_Societe')[0].value;
+            var nom = $('#client_Nom')[0].value;
+            if (societe == "" && nom == "") {
+                var messages = $('.notValidClient');
+                for (var i = 0; i < messages.length; i++) {
+                    messages[i].classList.remove("d-none");
+                }
+            }
+            else {
+                var messages = $('.notValidClient');
+                for (var i = 0; i < messages.length; i++) {
+                    messages[i].classList.add("d-none");
+                }
+                $('#SubmitClient').submit();
+            }
+        }
+    </script>
+}

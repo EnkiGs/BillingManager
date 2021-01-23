@@ -1,8 +1,9 @@
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.deps.json
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.dll
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.csprojAssemblyReference.cache
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.AssemblyInfoInputs.cache
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.AssemblyInfo.cs
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.pdb
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.dll
-C:\Users\frus76270\Documents\Personnel\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.deps.json
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\bin\Debug\netcoreapp3.1\EntityModels.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.csprojAssemblyReference.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.csproj.CoreCompileInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.AssemblyInfoInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.AssemblyInfo.cs
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager\Common\EntityModels\obj\Debug\netcoreapp3.1\EntityModels.pdb

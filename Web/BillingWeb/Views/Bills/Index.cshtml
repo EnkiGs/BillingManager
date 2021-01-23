@@ -4,65 +4,152 @@
     ViewData["Title"] = "Bills List";
 }
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Nouvelle facture</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Référence
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bill.Objet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bill.Total)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bill.ModeR)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bill.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.bill.DateP)
-            </th>
-            <th>
-                Client
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @item.bill.Num-@item.bill.Year
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bill.Objet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bill.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bill.ModeR)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bill.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.bill.DateP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.clientName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.bill.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.bill.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.bill.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div>
+    <table id="tableDocuments" class="table table-striped table-bordered table-hover tableCustom">
+        <thead>
+            <tr>
+                <th style="width: 80px">
+                    Référence
+                </th>
+                <th style="max-width: 400px; min-width: 200px;">
+                    @Html.DisplayNameFor(model => model.bill.Objet)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bill.Total)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bill.Date)
+                </th>
+                <th style="max-width: 200px; min-width: 100px;">
+                    Client
+                </th>
+                <th style="max-width: 60px;">
+                    Payé
+                </th>
+                <th style="min-width: 210px;">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.bill.Num-@item.bill.Year
+                </td>
+                <td class="text-break" style="max-width: 400px; min-width: 200px;">
+                    @Html.DisplayFor(modelItem => item.bill.Objet)
+                </td>
+                <td class="TotalValues">
+                    @Html.DisplayFor(modelItem => item.bill.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bill.Date)
+                </td>
+                <td class="text-break">
+                    @Html.DisplayFor(modelItem => item.clientName)
+                </td>
+                <td class="text-break">
+                    @if (item.bill.ModeR == Common.EntityModels.PayementWay.Non_payé)
+                    {
+                        <i class="fas fa-times" style="color: red; font-size: 20px; display: grid; text-align: center"></i>
+                    }
+                    else
+                    {
+                        <i class="fas fa-check" style="color: green; font-size: 20px; display: grid; text-align: center"></i>
+                    }
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.bill.Id"><i class="fas fa-search"></i></a>
+                    @if (item.bill.ModeR == Common.EntityModels.PayementWay.Non_payé)
+                    {
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.bill.Id" asp-fragment="payement"><i class="fas fa-euro-sign"></i></a>
+                    }
+                    <a class="btn btn-info" asp-action="Pdf" asp-route-id="@item.bill.Id" target="_blank"><i class="fas fa-file-pdf"></i></a>
+                    <form id="DeleteForm_@item.bill.Id" class="d-inline-block" action="/Bills/Delete/@item.bill.Id" method="post">
+                        <input type="hidden" asp-for="@item.bill.Id" />
+                        <button type="button" class="btn btn-danger btnDelete" onclick="ConfirmDelete(@item.bill.Id)"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    Référence
+                </th>
+                <th>
+                    Objet
+                </th>
+                <th>
+                    Total
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Client
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div id="totalDiv">
+    <div>
+        <span>Total : </span><span id="TotalValue">0</span>
+    </div>
+</div>
+
+<div id="aideDiv">
+    <div>
+        <a class="btn btn-info disabled"><i class="fas fa-search"></i></a> <span>Consulter</span>
+        <a class="btn btn-info disabled"><i class="fas fa-euro-sign"></i></a> <span>Effectuer le paiement</span>
+        <a class="btn btn-info disabled"><i class="fas fa-file-pdf"></i></a> <span>Télécharger le pdf</span>
+        <a class="btn btn-danger disabled"><i class="fas fa-trash-alt"></i></a> <span>Supprimer</span>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Supprimer facture</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Etes-vous sûr(e) de vouloir supprimer cette facture ?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Annuler</a>
+                <a href="#" class="btn btn-success" onclick="DeleteBill()">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        var idDeleted = -1;
+        var ConfirmDelete = function (id) {
+            idDeleted = id;
+            $("#myModal").modal('show');
+        }
+
+        var DeleteBill = function () {
+            if (idDeleted != -1) {
+                $('#DeleteForm_' + idDeleted).submit();
+                idDeleted = -1;
+            }
+        }
+
+        $(document).ready(function () {
+            DocumentList.Init();
+        });
+
+    </script>
+} 

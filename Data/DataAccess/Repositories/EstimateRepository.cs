@@ -20,12 +20,15 @@ namespace Data.DataAccess.Repositories
 
         public async Task<Estimate> GetEstimate(long id)
         {
-            return await context.Estimates.SingleOrDefaultAsync(e => e.Id == id);
+            return await context.Estimates
+                .Include(e => e.LibelleList)
+                .Include(e => e.Client)
+                .SingleOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IEnumerable<Estimate>> GetEstimates()
         {
-            return await context.Estimates.ToListAsync();
+            return await context.Estimates.Include(e => e.LibelleList).Include(e => e.Client).ToListAsync();
         }
 
         public async Task AddEstimate(Estimate estimate)
@@ -52,6 +55,16 @@ namespace Data.DataAccess.Repositories
             var estimate = await context.Estimates.FindAsync(id);
             context.Estimates.Remove(estimate);
             await context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<string>> GetRegularObjects()
+        {
+            return await context.Estimates.Where(b => !string.IsNullOrEmpty(b.Objet)).Select(b => b.Objet).ToListAsync();
+        }
+
+        public async Task<IEnumerable<string>> GetRegularDescriptions()
+        {
+            return await context.Wordings.Where(w => !string.IsNullOrEmpty(w.Content)).Select(w => w.Content).ToListAsync();
         }
     }
 }

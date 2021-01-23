@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj": {}
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj",
         "projectName": "EntityModels",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,11 +43,11 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -65,24 +65,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj",
         "projectName": "StartUpConfiguration",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,14 +95,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\Business.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\Business.csproj"
               }
             }
           }
@@ -118,11 +118,11 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -140,24 +140,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj",
         "projectName": "DataAccessInterfaces",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -170,8 +170,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
               }
             }
           }
@@ -199,24 +199,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccess\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -229,11 +229,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj"
               }
             }
           }
@@ -249,17 +249,17 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -277,24 +277,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj",
         "projectName": "BusinessInterfaces",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -307,8 +307,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
               }
             }
           }
@@ -336,24 +336,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\Business.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\Business\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\Business.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -366,14 +366,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\EntityModels\\EntityModels.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Data\\DataAccessInterfaces\\DataAccessInterfaces.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
               }
             }
           }
@@ -401,24 +401,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj": {
+    "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj",
+        "projectUniqueName": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj",
         "projectName": "BillingWeb",
-        "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj",
-        "packagesPath": "C:\\Users\\frus76270\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Web\\BillingWeb\\obj\\",
+        "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Web\\BillingWeb\\BillingWeb.csproj",
+        "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Web\\BillingWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\frus76270\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -431,11 +431,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Common\\StartUpConfig\\StartUpConfiguration.csproj"
               },
-              "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
-                "projectPath": "C:\\Users\\frus76270\\Documents\\Personnel\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
+              "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj": {
+                "projectPath": "D:\\Documents\\Programmation\\_Visual Studio\\BillingManager\\Professional\\BusinessInterfaces\\BusinessInterfaces.csproj"
               }
             }
           }
@@ -451,27 +451,31 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.1, )"
+            },
+            "DinkToPdf": {
+              "target": "Package",
+              "version": "[1.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -492,7 +496,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

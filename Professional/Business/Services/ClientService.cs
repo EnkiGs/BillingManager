@@ -24,7 +24,7 @@ namespace Professional.Business.Services
 
         public async Task<Client> GetClient(long? id)
         {
-            return id == null ? null : await repo.GetClient(id.Value);
+            return !id.HasValue ? null : await repo.GetClient(id.Value);
         }
 
         public async Task AddClient(Client client)
@@ -45,12 +45,19 @@ namespace Professional.Business.Services
         public async Task<string> GetClientName(long Id)
         {
             var client = await GetClient(Id);
-            return GetClientName(client);
+            if(client == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return GetClientName(client);
+            }
         }
 
         public string GetClientName(Client client)
         {
-            return client.Civil == Title.Société ? client.Societe : client.Prenom + client.Nom;
+            return client.Civil == Title.Société ? client.Societe : client.Nom + client.Prenom;
         }
     }
 }

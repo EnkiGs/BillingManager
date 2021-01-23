@@ -17,5 +17,9 @@ namespace DataAccessInterfaces.Repositories.Interfaces
         Task UpdateEstimate(Estimate estimate);
 
         Task DeleteEstimate(long id);
+
+        Task<IEnumerable<string>> GetRegularObjects();
+
+        Task<IEnumerable<string>> GetRegularDescriptions();
     }
 }

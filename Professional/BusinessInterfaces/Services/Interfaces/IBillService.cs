@@ -1,6 +1,7 @@
 ﻿using Common.EntityModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,5 +20,9 @@ namespace Professional.BusinessInterfaces.Services.Interfaces
         Task DeleteBill(long id);
 
         Task<int> CountBillsForYear(int year);
+
+        Task<IEnumerable<string>> GetRegularObjects();
+
+        Task<IEnumerable<string>> GetRegularDescriptions();
     }
 }
