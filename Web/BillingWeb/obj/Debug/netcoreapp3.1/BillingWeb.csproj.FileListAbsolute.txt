@@ -405,3 +405,10 @@ D:\Documents\Programmation\_Visual Studio\BillingManager\Web\BillingWeb\bin\Debu
 D:\Documents\Programmation\_Visual Studio\BillingManager\Web\BillingWeb\obj\Debug\netcoreapp3.1\Razor\Views\Estimates\Details.cshtml.g.cs
 D:\Documents\Programmation\_Visual Studio\BillingManager\Web\BillingWeb\obj\Debug\netcoreapp3.1\Razor\Views\Estimates\Index.cshtml.g.cs
 D:\Documents\Programmation\_Visual Studio\BillingManager\Web\BillingWeb\obj\Debug\netcoreapp3.1\Razor\Views\Estimates\Pdf.cshtml.g.cs
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.csprojAssemblyReference.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.AssemblyInfoInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.AssemblyInfo.cs
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.csproj.CoreCompileInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.RazorAssemblyInfo.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Web\BillingWeb\obj\Debug\netcoreapp3.1\BillingWeb.RazorAssemblyInfo.cs

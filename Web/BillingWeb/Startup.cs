@@ -1,8 +1,10 @@
 using Common.StartUpConfiguration;
+using Data.DataAccess;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +24,11 @@ namespace Web.BillingWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<BillingDbContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("MyDbConnection"));
+            });
 
             StartUpConfig.SetDependencyInjection(services, Configuration);
 

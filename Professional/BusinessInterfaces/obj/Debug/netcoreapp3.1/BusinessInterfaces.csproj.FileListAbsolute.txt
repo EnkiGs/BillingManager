@@ -21,3 +21,15 @@ D:\Documents\Programmation\_Visual Studio\BillingManager\Professional\BusinessIn
 D:\Documents\Programmation\_Visual Studio\BillingManager\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.csproj.CopyComplete
 D:\Documents\Programmation\_Visual Studio\BillingManager\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.dll
 D:\Documents\Programmation\_Visual Studio\BillingManager\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\bin\Debug\netcoreapp3.1\BusinessInterfaces.deps.json
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\bin\Debug\netcoreapp3.1\BusinessInterfaces.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\bin\Debug\netcoreapp3.1\BusinessInterfaces.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\bin\Debug\netcoreapp3.1\EntityModels.pdb
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.csprojAssemblyReference.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.AssemblyInfoInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.AssemblyInfo.cs
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.csproj.CoreCompileInputs.cache
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.csproj.CopyComplete
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.dll
+D:\Documents\Programmation\_Visual Studio\BillingManager - Copie\Professional\BusinessInterfaces\obj\Debug\netcoreapp3.1\BusinessInterfaces.pdb
