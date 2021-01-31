@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Npgsql;
+using System;
 
 namespace Web.BillingWeb
 {
@@ -25,9 +27,23 @@ namespace Web.BillingWeb
         {
             services.AddMvc();
 
+            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+            var databaseUri = new Uri(databaseUrl);
+            var userInfo = databaseUri.UserInfo.Split(':');
+
+            var connectionString = new NpgsqlConnectionStringBuilder
+            {
+                Host = databaseUri.Host,
+                Port = databaseUri.Port,
+                Username = userInfo[0],
+                Password = userInfo[1],
+                Database = databaseUri.LocalPath.TrimStart('/')
+            }.ToString();
+            //var connectionString = Configuration.GetConnectionString("MyDbConnection");
+
             services.AddDbContext<BillingDbContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("MyDbConnection"));
+                options.UseNpgsql(connectionString);
             });
 
             StartUpConfig.SetDependencyInjection(services, Configuration);
@@ -40,6 +56,7 @@ namespace Web.BillingWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            Console.WriteLine("IsDev = " + env.IsDevelopment());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
