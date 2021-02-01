@@ -5,15 +5,19 @@
     self.Init = function () {
         tableDocuments();
         updateTotal();
-        document.getElementById('tableDocuments').getElementsByTagName('tbody')[0].addEventListener("DOMSubtreeModified", updateTotal)
+        document.getElementById('tableDocuments').getElementsByTagName('tbody')[0].addEventListener("DOMSubtreeModified", updateTotal);
     }
 
     function tableDocuments() {
         //Pagination First/Last Numbers
         $('#tableDocuments').DataTable({
             "pagingType": "first_last_numbers",
+            responsive: true,
+            columnDefs: [
+                { responsivePriority: 1, targets: -1 }
+            ],
             initComplete: function () {
-                this.api().columns().every(function () {
+                this.api().columns(".searchable").every(function () {
                     var column = this;
                     var search = $(`<input class="form-control form-control-sm" type="text" placeholder="Search">`)
                         .appendTo($(column.footer()).empty())

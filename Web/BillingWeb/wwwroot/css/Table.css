@@ -10,8 +10,9 @@
     padding-right: 15px !important;
 }
 
-#totalDiv{
+#totalDiv {
     text-align: right;
+    margin-top: 30px;
 }
 
 #totalDiv div {

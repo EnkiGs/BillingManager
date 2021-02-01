@@ -27,19 +27,19 @@ namespace Web.BillingWeb
         {
             services.AddMvc();
 
-            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-            var databaseUri = new Uri(databaseUrl);
-            var userInfo = databaseUri.UserInfo.Split(':');
+            //var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+            //var databaseUri = new Uri(databaseUrl);
+            //var userInfo = databaseUri.UserInfo.Split(':');
 
-            var connectionString = new NpgsqlConnectionStringBuilder
-            {
-                Host = databaseUri.Host,
-                Port = databaseUri.Port,
-                Username = userInfo[0],
-                Password = userInfo[1],
-                Database = databaseUri.LocalPath.TrimStart('/')
-            }.ToString();
-            //var connectionString = Configuration.GetConnectionString("MyDbConnection");
+            //var connectionString = new NpgsqlConnectionStringBuilder
+            //{
+            //    Host = databaseUri.Host,
+            //    Port = databaseUri.Port,
+            //    Username = userInfo[0],
+            //    Password = userInfo[1],
+            //    Database = databaseUri.LocalPath.TrimStart('/')
+            //}.ToString();
+            var connectionString = Configuration.GetConnectionString("MyDbConnection");
 
             services.AddDbContext<BillingDbContext>(options =>
             {
