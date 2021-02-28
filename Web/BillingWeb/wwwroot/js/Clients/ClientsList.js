@@ -10,6 +10,7 @@
         //Pagination First/Last Numbers
         $('#tableClients').DataTable({
             "pagingType": "first_last_numbers",
+            order: [[2, 'asc']],
             initComplete: function () {
                 this.api().columns(".searchable").every(function () {
                     var column = this;

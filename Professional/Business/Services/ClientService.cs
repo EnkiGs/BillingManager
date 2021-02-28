@@ -57,7 +57,7 @@ namespace Professional.Business.Services
 
         public string GetClientName(Client client)
         {
-            return client.Civil == Title.Société ? client.Societe : client.Nom + client.Prenom;
+            return client.Civil == Title.Société ? client.Societe : client.Nom + " " + client.Prenom;
         }
     }
 }

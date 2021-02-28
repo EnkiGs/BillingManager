@@ -45,3 +45,35 @@
 #aideDiv span:before {
     content: "=> ";
 }
+
+#RefCol {
+    width: 80px
+}
+
+#ObjetCol {
+    max-width: 400px;
+    min-width: 200px;
+}
+
+#ClientCol {
+    max-width: 200px;
+    min-width: 100px;
+}
+
+#PaiementCol {
+    max-width: 60px;
+}
+
+#ActionsCol {
+    min-width: 210px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    tfoot{
+        display: none;
+    }
+    #ActionsCol{
+        min-width: 0;
+    }
+}

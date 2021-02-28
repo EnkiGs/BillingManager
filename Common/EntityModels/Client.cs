@@ -53,9 +53,7 @@ namespace Common.EntityModels
 
         public override string ToString()
         {
-            if (Societe != null && Societe != "")
-                return Societe;
-            return Nom + Prenom;
+            return Civil == Title.Société ? Societe : Nom + " " + Prenom;
         }
 
         public int CompareTo(object obj)

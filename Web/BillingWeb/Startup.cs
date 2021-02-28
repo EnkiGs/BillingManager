@@ -39,7 +39,7 @@ namespace Web.BillingWeb
                 Password = userInfo[1],
                 Database = databaseUri.LocalPath.TrimStart('/')
             }.ToString();
-            //var connectionString = Configuration.GetConnectionString("MyDbConnection");
+            //var connectionString = Configuration.GetConnectionString("MyDbTestConnection");
 
             services.AddDbContext<BillingDbContext>(options =>
             {
@@ -56,15 +56,8 @@ namespace Web.BillingWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            Console.WriteLine("IsDev = " + env.IsDevelopment());
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            app.UseExceptionHandler("/Home/Error");
+
             app.UseStaticFiles();
 
             app.UseRouting();

@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label asp-for="client.Societe" class="control-label"></label>
                 <input asp-for="client.Societe" class="form-control" />
-                <span class="text-danger notValidClient d-none">Veuillez renseigner une société ou un nom.</span>
+                <span class="text-danger d-none" id="notValidSociete">Veuillez renseigner une société.</span>
             </div>
             <div class="form-group">
                 <label asp-for="client.Civil" class="control-label"></label>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label asp-for="client.Nom" class="control-label"></label>
                 <input asp-for="client.Nom" class="form-control" />
-                <span class="text-danger notValidClient d-none">Veuillez renseigner une société ou un nom.</span>
+                <span class="text-danger d-none" id="notValidName">Veuillez renseigner un nom.</span>
             </div>
             <div class="form-group">
                 <label asp-for="client.Prenom" class="control-label"></label>
@@ -67,11 +67,11 @@
             <div class="form-group">
                 @if (Model.client.Id == 0)
                 {
-                    <button type="button" onclick="CheckValidClient()" class="btn btn-success">Créer</button>
+                    <button type="button" class="btn btn-success">Créer</button>
                 }
                 else
                 {
-                    <button type="button" onclick="CheckValidClient()" class="btn btn-success">Enregistrer</button>
+                    <button type="button" class="btn btn-success" id="submitButton">Enregistrer</button>
                 }
                 <a class="btn btn-primary" asp-action="Index">Annuler</a>
             </div>
@@ -114,22 +114,8 @@
             $('#DeleteForm').submit();
         }
 
-        var CheckValidClient = function () {
-            var societe = $('#client_Societe')[0].value;
-            var nom = $('#client_Nom')[0].value;
-            if (societe == "" && nom == "") {
-                var messages = $('.notValidClient');
-                for (var i = 0; i < messages.length; i++) {
-                    messages[i].classList.remove("d-none");
-                }
-            }
-            else {
-                var messages = $('.notValidClient');
-                for (var i = 0; i < messages.length; i++) {
-                    messages[i].classList.add("d-none");
-                }
-                $('#SubmitClient').submit();
-            }
-        }
+        $(document).ready(function () {
+            ClientsDetail.Init();
+        });
     </script>
 }

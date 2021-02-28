@@ -103,22 +103,12 @@ namespace Web.BillingWeb.Controllers
             foreach (var cultureInfo in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
             {
                 var regionInfo = new RegionInfo(cultureInfo.Name);
-                if (!objDict.Exists(o => o.Text == regionInfo.DisplayName))
+                if (!objDict.Exists(o => o.Text == regionInfo.EnglishName))
                 {
-                    objDict.Add(new SelectListItem(regionInfo.DisplayName, regionInfo.TwoLetterISORegionName.ToLower()));
+                    objDict.Add(new SelectListItem(regionInfo.EnglishName, regionInfo.TwoLetterISORegionName.ToLower()));
                 }
             }
-
             return objDict.OrderBy(p => p.Text);
         }
-
-        private string GetCountryName(string TwoLetterISORegionName)
-        {
-            return CultureInfo.GetCultures(CultureTypes.SpecificCultures)
-                .Select(c => new RegionInfo(c.Name)).Distinct()
-                .SingleOrDefault(r => r.TwoLetterISORegionName.ToLower() == TwoLetterISORegionName)?
-                .DisplayName;
-        }
-
     }
 }
