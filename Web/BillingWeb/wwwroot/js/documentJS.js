@@ -49,7 +49,7 @@
 
         for (var i = 0; i < userSelection.length; i++) {
             userSelection[i].addEventListener("input", function () {
-                $(this).val($(this).val().replace(/\./g, ','))
+                $(this).val($(this).val().replace(/\,/g, '.'))
                 updateTotal();
             });
         }
@@ -75,15 +75,15 @@
         var listened = document.getElementsByClassName('listenedGroup');
         var total = 0.0;
         for (var i = 0; i < listened.length; i++) {
-            var quantity = listened[i].getElementsByClassName("quantity")[0].value.replace(/,/g, '.');
-            var price = listened[i].getElementsByClassName("price")[0].value.replace(/,/g, '.');
+            var quantity = listened[i].getElementsByClassName("quantity")[0].value;
+            var price = listened[i].getElementsByClassName("price")[0].value;
             total += parseFloat(quantity * price);
             if (isNaN(total)) {
                 total = 0;
                 break;
             }
         }
-        document.getElementById("TotalInput").value = total.toFixed(2).toString().replace(/\./g, ',');
+        document.getElementById("TotalInput").value = total.toFixed(2);
     }
 
     function updateDisplayPayementDate() {
